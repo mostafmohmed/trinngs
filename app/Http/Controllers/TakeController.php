@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\sendtask;
 use App\Models\Task;
 use App\Models\User;
+use App\Notifications\assigntask;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,9 +56,11 @@ Task::find($request->id)->comments()->create([
     'status'=>  $request->status,
 ]);
        $tasks= User::where('id',Auth::id())->first()->tasks()->attach($task); 
-   $rr=   User::with('tasks')->find(Auth::id());
+   $rr=   User::find(Auth::id());
     
-       dispatch(new sendtask( $rr->tasks()->find($task->id)));
+    //    dispatch(new sendtask( $rr->tasks()->find($task->id)));
+     $rr->notify( new assigntask($rr->tasks()->find($task->id)));
+    
        Session::flash('susess','sucess create');
        return redirect()->route('task.index');
     }

@@ -14,6 +14,8 @@
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="{{asset('assetes/plugins/fontawesome-free/css/all.min.css')}}">
 		<!-- Theme style -->
+        <link rel="stylesheet" href="{{asset('build/assets/app-3e559af6.css')}}">
+
 		<link rel="stylesheet" href="{{asset('assetes/css/adminlte.min.css')}}">
 		<link rel="stylesheet" href="{{asset('assetes/plugins/summernote/summernote-bs4.min.css')}}">
         <link rel="stylesheet" href="{{asset('assetes/plugins/dropzone/dropzone.css')}}">
@@ -40,6 +42,10 @@ frt
                 {{ $slot }}
             </main>
         </div>
+        <script>
+            id={{auth()->user()->id}};
+        </script>
+        <script src="{{asset('build/assets/app-ecbbb563.js')}}"></script>
         <script>
                function deleteservises(id){
   var url='{{route("task.destroy","ID")}}';
