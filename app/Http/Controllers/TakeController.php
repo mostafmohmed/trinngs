@@ -27,9 +27,20 @@ Task::find($request->id)->comments()->create([
          return redirect()->route('task.index');
     }
 
-    public function index()
+    public function index( Request $request)
     {
-     $tasks=   auth()->user()->tasks()->get();
+        if($request-> search){
+
+         
+          $tasks=  Task::search($request-> search)->get();
+        
+          
+   
+            
+        }else{
+            $tasks=   auth()->user()->tasks()->get(); 
+        }
+  
   
         return view('dashboard',compact('tasks'));
     }

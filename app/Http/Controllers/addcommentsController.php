@@ -11,6 +11,9 @@ class addcommentsController extends Controller
      */
     public function __invoke(Request $request)
     {
-       
+       auth()->user()->comments()->create([
+'comment'=>$request->comment
+       ]);
+       return redirect()->back();
     }
 }

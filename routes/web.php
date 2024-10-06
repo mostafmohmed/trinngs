@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\addcommentsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\showcomment;
 use App\Http\Controllers\TakeController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,8 @@ Route::get('/', function () {
 })->middleware('auth');
 Route::resource('/task',TakeController::class)->middleware(['auth']);
 Route::get('/tasks/{id}',[TakeController::class,'createcomment'])->name('task.comment');
+Route::post('/addcomment',addcommentsController::class)->name('addcomment');
+Route::get('/showComment',[showcomment::class,'showcomment'])->name('showC');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

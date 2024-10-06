@@ -4,6 +4,10 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
+                <form class="form-inline my-2 my-lg-0" method="GET" action="{{url()->current()}}">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('task.index') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />

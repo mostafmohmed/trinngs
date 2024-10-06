@@ -26,7 +26,7 @@
         <section class="content">
             <!-- Default box -->
             <div class="container-fluid">
-                <form action="{{route('task.store')}}"   method="POST" id="Categoryform" name="Categoryform">
+                <form action="{{route('addcomment')}}"   method="POST" id="Categoryform" name="Categoryform">
                     @csrf
                 <div class="card">
                     <div class="card-body">								
